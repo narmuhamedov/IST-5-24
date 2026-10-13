@@ -1,0 +1,48 @@
+{% load static %}
+{% include 'layouts/header.html' %}
+<link rel="stylesheet" href="{% static 'css/about_me.css' %}">
+<main class="about-section"> 
+    <div class="about-card">
+
+        <h1 class="about-title">Обо мне</h1>
+
+        <!-- Основная информация -->
+        <ul class="about-info">
+            <li>
+                <span class="about-label">Имя:</span>
+                <span class="about-value">{{ about_me.name }}</span>
+            </li>
+            <li>
+                <span class="about-label">Работа:</span>
+                <span class="about-value">{{ about_me.work }}</span>
+            </li>
+            <li>
+                <span class="about-label">Хобби:</span>
+                <span class="about-value">{{ about_me.hobby }}</span>
+            </li>
+            <li>
+                <span class="about-label">Время:</span>
+                <span class="about-value">{{ about_me.time }}</span>
+            </li>
+        </ul>
+
+        <!-- Телефоны -->
+        <h2 class="about-subtitle">Телефоны</h2>
+
+        <ul class="about-phones">
+            {% for i in about_me.phone_numbers %}
+                <li>
+                    <a href="tel:{{ i }}" class="phone-link">{{ i }}</a>
+                </li>
+            {% empty %}
+                <li class="about-empty">Номера не указаны</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</main>
+
+
+
+
+{% include 'layouts/footer.html' %}

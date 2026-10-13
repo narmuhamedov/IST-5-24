@@ -1,0 +1,119 @@
+/* Общие стили для сброса отступов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Стили для навигационной панели */
+.navbar {
+    /* Градиентный фон для всей панели */
+    background: linear-gradient(90deg, #0033cc 0%, #00ccff 100%);
+    padding: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для списка меню */
+.nav-menu {
+    list-style: none;
+    display: flex; /* Выстраиваем пункты в ряд */
+    justify-content: center; /* Центрируем по горизонтали */
+    flex-wrap: wrap; /* Позволяет переносить пункты на новую строку при узком экране */
+    gap: 10px; /* Расстояние между пунктами */
+    padding: 0 15px;
+}
+
+/* Стили для ссылок (пунктов меню) */
+.nav-link {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 6px;
+    
+    /* Градиент для каждого пункта отдельно */
+    background: linear-gradient(135deg, #0055ff 0%, #00aaff 100%);
+    
+    /* Плавный переход для эффекта при наведении */
+    transition: all 0.3s ease;
+    
+    /* Легкая тень для текста, чтобы лучше читался */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    
+    /* Тонкая рамка для контраста */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Эффект при наведении курсора */
+.nav-link:hover {
+    /* Меняем направление градиента и делаем его ярче при наведении */
+    background: linear-gradient(135deg, #00aaff 0%, #0055ff 100%);
+    transform: translateY(-2px); /* Легкий подъем */
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.4); /* Свечение */
+}
+
+/* Эффект при клике */
+.nav-link:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 170, 255, 0.4);
+}
+
+/* ============ Футер ============ */
+.footer {
+    background: linear-gradient(90deg, #0033cc 0%, #00ccff 100%);
+    color: #ffffff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Ссылки в футере */
+.footer-menu {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.footer-link:hover {
+    color: #ccf2ff;
+    text-decoration: underline;
+}
+
+/* Копирайт */
+.footer-copy {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 15px;
+    margin-top: 5px;
+}
+
+/* ============ Адаптивность ============ */
+@media (max-width: 768px) {
+    .footer-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

@@ -1,14 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>{{ blog_id.title }}</h1>
-    <p>{{ blog_id.description }}</p>
-    <img src="{{ blog_id.image.url }}" alt="" width="300" height="200">
-    <p>{{ blog_id.created_at }}</p>
-</body>
-</html>
+{% load static %}
+{% include 'layouts/header.html' %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+<main class="blog-detail">
+    <article class="blog-card">
+
+        <h1 class="blog-detail-title">{{ blog_id.title }}</h1>
+        
+        {% if blog_id.created_at %}
+            <p class="blog-detail-date">📅 {{ blog_id.created_at }}</p>
+        {% else %}
+            <p class="blog-detail-date">📅 Дата загрузки неизвестна</p>
+        {% endif %}
+
+        <div class="blog-detail-image">
+            <img src="{{ blog_id.image.url }}" alt="{{ blog_id.title }}" width="300" height="200">
+        </div>
+
+        <p class="blog-detail-text">{{ blog_id.description }}</p>
+
+        <a href="/" class="blog-back-btn">← Назад к списку</a>
+
+    </article>
+</main>
+
+
+{% include 'layouts/footer.html' %}

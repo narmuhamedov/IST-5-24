@@ -1,0 +1,146 @@
+/* ============ Страница «Обо мне» ============ */
+.about-section {
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Карточка */
+.about-card {
+    background: #ffffff;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 12px;
+    padding: 35px 30px;
+    box-shadow: 0 6px 20px rgba(0, 51, 204, 0.12);
+    border-top: 5px solid transparent;
+    border-image: linear-gradient(90deg, #0033cc 0%, #00ccff 100%) 1;
+}
+
+/* Заголовки */
+.about-title {
+    font-size: 28px;
+    color: #0033cc;
+    text-align: center;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(0, 170, 255, 0.15);
+}
+
+.about-subtitle {
+    font-size: 20px;
+    color: #0033cc;
+    margin: 30px 0 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e6f2ff;
+}
+
+/* Список основной информации */
+.about-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.about-info li {
+    display: flex;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f8ff;
+    font-size: 16px;
+}
+
+.about-info li:last-child {
+    border-bottom: none;
+}
+
+.about-label {
+    font-weight: 600;
+    color: #0055ff;
+    min-width: 100px;
+}
+
+.about-value {
+    color: #333;
+}
+
+/* Список телефонов */
+.about-phones {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.phone-link {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #0055ff 0%, #00aaff 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.phone-link:hover {
+    background: linear-gradient(135deg, #00aaff 0%, #0055ff 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.5);
+}
+
+.phone-link:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 170, 255, 0.4);
+}
+
+/* Если нет номеров */
+.about-empty {
+    color: #888;
+    font-style: italic;
+    font-size: 15px;
+}
+
+/* ============ Адаптивность ============ */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 20px 15px;
+    }
+
+    .about-card {
+        padding: 25px 18px;
+    }
+
+    .about-title {
+        font-size: 22px;
+    }
+
+    .about-subtitle {
+        font-size: 18px;
+    }
+
+    .about-info li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .about-label {
+        min-width: auto;
+    }
+
+    .about-phones {
+        flex-direction: column;
+    }
+
+    .phone-link {
+        width: 100%;
+        text-align: center;
+    }
+}
