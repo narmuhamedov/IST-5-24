@@ -1,0 +1,171 @@
+/* ===== Базовые настройки ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background: #f4f6f9;
+    color: #2c3e50;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* ===== Карточка машины (обёртка через :has не нужна — 
+   стилизуем через отступы между блоками) ===== */
+
+/* Каждый блок машины отделяем от следующего */
+h2 {
+    font-size: 1.6rem;
+    color: #1a2b3c;
+    margin: 30px 0 8px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #3498db;
+    letter-spacing: 0.3px;
+}
+
+/* Первая карточка — без лишнего верхнего отступа */
+h2:first-of-type {
+    margin-top: 0;
+}
+
+h4 {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin: 18px 0 8px;
+    font-weight: 600;
+}
+
+/* ===== Параграфы (владелец, дата) ===== */
+p {
+    font-size: 1rem;
+    color: #4a5a6a;
+    margin: 4px 0;
+}
+
+/* ===== Номер машины ===== */
+h4 strong em {
+    font-style: normal;
+    color: #27ae60;
+    background: #eafaf1;
+    padding: 2px 10px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    border: 1px solid #a9dfbf;
+}
+
+/* ===== Категории ===== */
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0;
+}
+
+ul li em strong {
+    display: inline-block;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #2c5aa0;
+    background: #e8f0fe;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid #b6d0f5;
+    text-transform: capitalize;
+}
+
+/* ===== Отзывы ===== */
+ol {
+    list-style: none;
+    counter-reset: review;
+    margin: 8px 0 0;
+}
+
+ol li {
+    counter-increment: review;
+    position: relative;
+    background: #ffffff;
+    border-left: 4px solid #3498db;
+    border-radius: 6px;
+    padding: 12px 14px 12px 46px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+ol li:hover {
+    transform: translateX(3px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Номер отзыва кружком */
+ol li::before {
+    content: counter(review);
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: #3498db;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Текст отзыва */
+ol li p:first-child {
+    font-size: 0.95rem;
+    color: #2c3e50;
+    margin-bottom: 4px;
+}
+
+/* Дата отзыва */
+ol li p:last-child {
+    font-size: 0.78rem;
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* Сообщение "Отзывов пока нет" */
+ol li:only-child:not(:has(p)) {
+    background: #fdf6e3;
+    border-left-color: #f1c40f;
+    color: #8a6d3b;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* fallback для :has — если браузер не поддерживает */
+@supports not selector(:has(*)) {
+    ol li {
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== Адаптив ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    ol li {
+        padding: 10px 10px 10px 40px;
+    }
+}

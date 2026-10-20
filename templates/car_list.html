@@ -1,0 +1,49 @@
+{% load static %}
+{% include 'layouts/header.html' %}
+<link rel="stylesheet" href="{% static 'css/cars.css' %}">
+{% for i in car_list %}
+
+<h2>Название машины - {{ i.title }}</h2>
+<p>Владелец машины - {{ i.raider }}</p>
+{% if i.register_date %}
+<p>Дата покупки - {{ i.register_date }}</p>
+{% else %}
+<p>Дата покупки неизвестна!</p>
+{% endif %}
+
+{% if i.numbercar.number_car %}
+<h4>Номер зарегистрированного автомобиля - <strong><em>{{ i.numbercar.number_car }}</em></strong></h4>
+{% else %}
+<p>Номер машины еще не зарегистрирован!</p>
+{% endif %}
+
+<h4>Категории машин</h4>
+<ul>
+    {% for cat in i.categories.all %}
+        <li>
+            <em><strong>
+                {{ cat.name }}
+            </strong></em>
+        </li>
+    {% endfor %}
+</ul>
+
+<h4>Отзывы</h4>
+<ol>
+    {% for review in i.comments.all %}
+        <li>
+            <p>{{ review.comment }}</p>
+            <p>{{ review.created_at }}</p>
+        </li>
+    {% empty %}
+        <li>Отзывов пока нет</li>
+    {% endfor %}
+</ol>
+
+
+{% endfor %}
+
+
+
+
+{% include 'layouts/footer.html' %}
