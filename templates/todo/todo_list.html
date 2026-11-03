@@ -1,0 +1,36 @@
+{% load static %}
+{% include 'layouts/header.html' %}
+
+<link rel="stylesheet" href="{% static 'css/crud.css' %}">
+<div class="container">
+    <div class="page-header">
+        <h1>Список задач на сегодня</h1>
+        <a href="{% url 'create' %}" class="btn btn-add">Добавить задачу</a>
+    </div>
+
+    <ul class="todo-list">
+        {% for i in todo %}
+        <li class="todo-item">
+            <div class="todo-content">
+                <h2>{{ i.title }}</h2>
+                {% if i.description %}
+                <p class="todo-description">{{ i.description }}</p>
+                {% else %}
+                <p class="todo-description empty">Описание не указано!</p>
+                {% endif %}
+                <p class="todo-status">Статус - {{ i.cheking }}</p>
+                <div class="todo-dates">
+                    <p>Создано: {{ i.created_at }}</p>
+                    <p>Обновлено: {{ i.upated_at }}</p>
+                </div>
+            </div>
+            <div class="todo-actions">
+                <a href="/todo_list/{{ i.id }}/update/" class="btn btn-edit">Изменить</a>
+                <a href="/todo_list/{{ i.id }}/delete/" class="btn btn-delete">Удалить</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% include 'layouts/footer.html' %}

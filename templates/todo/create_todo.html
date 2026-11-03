@@ -1,0 +1,19 @@
+{% load static %}
+{% include 'layouts/header.html' %}
+<link rel="stylesheet" href="{% static 'css/crud.css' %}">
+<div class="container">
+    <div class="form-wrapper">
+        <h1>Добавить задачу</h1>
+        <form action="{% url 'create' %}" method="POST" class="todo-form">
+            {% csrf_token %}
+            <div class="form-fields">
+                {{ form.as_p }}
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-submit">Добавить</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% include 'layouts/footer.html' %}

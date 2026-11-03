@@ -1,0 +1,19 @@
+{% load static %}
+{% include 'layouts/header.html' %}
+<link rel="stylesheet" href="{% static 'css/crud.css' %}">
+<div class="container">
+    <div class="form-wrapper">
+        <h1>Вы действительно хотите изменить {{ todo_id.title }}</h1>
+        <form method="POST" class="todo-form">
+            {% csrf_token %}
+            <div class="form-fields">
+                {{ form.as_p }}
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-submit">Изменить</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% include 'layouts/footer.html' %}
