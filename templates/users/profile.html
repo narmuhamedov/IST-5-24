@@ -1,0 +1,48 @@
+{% load static %}
+{% include 'layouts/header.html' %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<div class="profile-container">
+    <div class="profile-card">
+        
+        <div class="profile-header">
+            {% if user.photo %}
+                <img class="profile-avatar" src="{{ user.photo.url }}" alt="{{ user.username }}">
+            {% else %}
+                <!-- Заглушка, если фото нет -->
+                <div class="profile-avatar avatar-placeholder">
+                    {{ user.username|first|upper }}
+                </div>
+            {% endif %}
+            
+            <h1 class="profile-username">{{ user.username }}</h1>
+            <p class="profile-email">{{ user.email|default:"Email не указан" }}</p>
+        </div>
+
+        <div class="profile-body">
+            <div class="profile-info-row">
+                <span class="info-label">Имя:</span>
+                <span class="info-value">{{ user.first_name|default:"Не указано" }}</span>
+            </div>
+            <div class="profile-info-row">
+                <span class="info-label">Пол:</span>
+                <span class="info-value">{{ user.gender|default:"Не указан" }}</span>
+            </div>
+            <div class="profile-info-row">
+                <span class="info-label">Телефон:</span>
+                <span class="info-value">{{ user.phone|default:"Не указан" }}</span>
+            </div>
+        </div>
+
+        <div class="profile-footer">
+            <form action="{% url 'logout' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn-logout">Выйти из аккаунта</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% include 'layouts/footer.html' %}

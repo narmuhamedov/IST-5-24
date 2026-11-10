@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'blog',
     'cars',
     'todo',
+    'users',
+    'captcha',
 ]
 
 MIDDLEWARE = [
