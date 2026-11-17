@@ -31,6 +31,40 @@
         </li>
         {% endfor %}
     </ul>
+
+    <!-- Пагинация -->
+    {% if todo.has_other_pages %}
+    <nav class="pagination">
+        {% if todo.has_previous %}
+            <a href="?page=1" class="page-link">&laquo; Первая</a>
+            <a href="?page={{ todo.previous_page_number }}" class="page-link">Назад</a>
+        {% else %}
+            <span class="page-link disabled">&laquo; Первая</span>
+            <span class="page-link disabled">Назад</span>
+        {% endif %}
+
+        {% for num in todo.paginator.page_range %}
+            {% if todo.number == num %}
+                <span class="page-link active">{{ num }}</span>
+            {% elif num > todo.number|add:'-3' and num < todo.number|add:'3' %}
+                <a href="?page={{ num }}" class="page-link">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if todo.has_next %}
+            <a href="?page={{ todo.next_page_number }}" class="page-link">Вперёд</a>
+            <a href="?page={{ todo.paginator.num_pages }}" class="page-link">Последняя &raquo;</a>
+        {% else %}
+            <span class="page-link disabled">Вперёд</span>
+            <span class="page-link disabled">Последняя &raquo;</span>
+        {% endif %}
+    </nav>
+    {% endif %}
+
+
+
+
+
 </div>
 
 {% include 'layouts/footer.html' %}

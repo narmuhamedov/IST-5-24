@@ -3,7 +3,15 @@
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
 <main class="blog-section">
     <h1 class="blog-heading">Наш блог</h1>
-
+      <form method="GET" action="{% url 'search' %}" class="blog-search-form">
+        <input 
+            type="text" 
+            name="q" 
+            class="blog-search-input" 
+            placeholder="Поиск по блогу..." 
+        >
+        <button type="submit" class="blog-search-btn">Найти</button>
+    </form>
     <ul class="blog-list">
         {% for i in blog %}
         <li class="blog-item">

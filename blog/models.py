@@ -5,6 +5,7 @@ class Blog(models.Model):
     description = models.TextField(verbose_name='укажите описание блога')
     image = models.ImageField(upload_to='blog/', null=True, verbose_name='загрузите фото')
     created_at = models.DateField(auto_now_add=True, null=True)
+    views = models.PositiveIntegerField(default=0, null=True)
     def __str__(self):
         return f'{self.title}'
     

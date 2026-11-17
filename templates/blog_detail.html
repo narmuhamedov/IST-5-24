@@ -11,6 +11,7 @@
         {% else %}
             <p class="blog-detail-date">📅 Дата загрузки неизвестна</p>
         {% endif %}
+        <p class="blog-detail-views">👁 {{ blog_id.views }} просмотров</p>
 
         <div class="blog-detail-image">
             <img src="{{ blog_id.image.url }}" alt="{{ blog_id.title }}" width="300" height="200">

@@ -210,3 +210,39 @@
         text-align: center;
     }
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 25px;
+}
+
+.page-link {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.page-link:hover {
+    background: #f0f0f0;
+}
+
+.page-link.active {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+    cursor: default;
+}
+
+.page-link.disabled {
+    color: #aaa;
+    border-color: #eee;
+    cursor: not-allowed;
+}

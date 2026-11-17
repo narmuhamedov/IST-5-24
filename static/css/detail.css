@@ -128,3 +128,17 @@
         text-align: center;
     }
 }
+
+.blog-detail-meta {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.blog-detail-views {
+    color: #666;
+    font-size: 15px;
+    margin: 0;
+}

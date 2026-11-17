@@ -2,6 +2,9 @@ from django.shortcuts import render,redirect, get_object_or_404
 from todo.forms import TodoForm
 from todo.models import Todo
 from django.http import HttpResponse
+from django.core.paginator import Paginator
+
+
 
 #CRUD - create read update delete
 def create_todo_view(request):
@@ -17,7 +20,10 @@ def create_todo_view(request):
 def read_todo_view(request):
     if request.method == "GET":
         todo = Todo.objects.all().order_by("-id")
-    return render(request, 'todo/todo_list.html', {'todo': todo})
+        paginator_todo = Paginator(todo, 2)
+        page = request.GET.get('page')
+        page_obj = paginator_todo.get_page(page)
+    return render(request, 'todo/todo_list.html', {'todo': page_obj})
 
 def update_todo_view(request, id):
     todo_id = get_object_or_404(Todo, id=id)
