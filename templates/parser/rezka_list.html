@@ -1,0 +1,18 @@
+{% load static %}
+{% include 'layouts/header.html' %}
+
+<h1>Спарсенные фильмы</h1>
+
+{% for i in rezka %}
+
+<p>{{ i.title }}</p>
+<img src="{{ i.image }}" alt="" width="300" height="300">
+
+{% endfor %}
+
+
+
+
+
+
+{% include 'layouts/footer.html' %}

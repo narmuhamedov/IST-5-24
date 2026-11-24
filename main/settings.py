@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'todo',
     'users',
     'captcha',
+    'parser_app',
 ]
 
 MIDDLEWARE = [

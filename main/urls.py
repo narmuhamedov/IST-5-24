@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include('todo.urls')),
     path('', include('users.urls')),
     path('', include('captcha.urls')),
+    path('', include('parser_app.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
